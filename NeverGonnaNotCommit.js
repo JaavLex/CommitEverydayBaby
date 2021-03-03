@@ -14,7 +14,7 @@ function generateRickRoll() {
   const readmeRow = readme.split('\n');
   
   const Index = findIndex(readmeRow);
-  readmeRow[Index] = `https://www.youtube.com/watch?v=dQw4w9WgXcQ&{makeRandString(6)}`;
+  readmeRow[Index] = `https://www.youtube.com/watch?v=dQw4w9WgXcQ&` + makeRandString(6);
 
   return readmeRow.join('\n');
 }
