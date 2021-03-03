@@ -1,4 +1,4 @@
-# CommitEverydayBaby
-Buffing my GitHub stats
 
-1
+Number of commits on this repo :
+
+<#num_commits>
