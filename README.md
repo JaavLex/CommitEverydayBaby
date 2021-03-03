@@ -1,4 +1,4 @@
 
 Number of commits on this repo :
 
-<#num_commits>
+1
