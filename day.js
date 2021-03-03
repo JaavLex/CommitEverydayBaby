@@ -1,19 +1,17 @@
 const { promises: fs, read } = require('fs');
 const readme = require('./readme');
 
-const msInOneDay = 1000 * 60 * 60 * 24;
-
 function generateNewREADME() {
   const readmeRow = readme.split('\n');
 
   // * DBNW = Day Before New Year
-  const DBNWIndex = findDBNWIndex(readmeRow);
-  readmeRow[DBNWIndex] = getDBNWSentence();
+  const DBNWIndex = findIndex(readmeRow);
+  readmeRow[DBNWIndex] = numCommits();
 
   return readmeRow.join('\n');
 }
 
-function getDBNWSentence() {
+function numCommits() {
   const now = new Date();
   const nextYear = now.getFullYear() + 1;
   const nextYearDate = new Date(String(nextYear));
@@ -24,8 +22,8 @@ function getDBNWSentence() {
   return `**${dayUntilNewYear} day before ${nextYear} ⏱**`;
 }
 
-const findDBNWIndex = (rows) =>
-  rows.findIndex((r) => Boolean(r.match(/<#day_before_new_years>/i)));
+const findIndex = (rows) =>
+  rows.findIndex((r) => Boolean(r.match(/<#num_commits>/i)));
 
 const updateREADMEFile = (text) =>
   fs.writeFile('./README.md', text, (e) => console.log(text));
