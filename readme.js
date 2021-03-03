@@ -1,5 +1,5 @@
 module.exports = `
-Number of commits on this repo :
+Never Gonna not commit, never Gonna give you uuuuuuuuuuuuupppppp !!!!!!!!!!!!
 
-<#num_commits>
+<#rick_roll>
 `;
