@@ -12,7 +12,7 @@ function generateNewREADME() {
 }
 
 function numCommits() {
-  const curCommits = 0;
+  let curCommits = 0;
   
   fs.readFile('./commits.txt', 'utf8', function(err, data) {
     if (err) throw err;
