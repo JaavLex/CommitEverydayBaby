@@ -5,21 +5,25 @@ function generateNewREADME() {
   const readmeRow = readme.split('\n');
 
   // * DBNW = Day Before New Year
-  const DBNWIndex = findIndex(readmeRow);
-  readmeRow[DBNWIndex] = numCommits();
+  const Index = findIndex(readmeRow);
+  readmeRow[Index] = numCommits();
 
   return readmeRow.join('\n');
 }
 
 function numCommits() {
-  const now = new Date();
-  const nextYear = now.getFullYear() + 1;
-  const nextYearDate = new Date(String(nextYear));
-
-  const timeUntilNewYear = nextYearDate - now;
-  const dayUntilNewYear = Math.round(timeUntilNewYear / msInOneDay);
-
-  return `**${dayUntilNewYear} day before ${nextYear} ⏱**`;
+  const curCommits = 0;
+  
+  fs.readFile('./commits.txt', 'utf8', function(err, data) {
+    if (err) throw err;
+    curCommits = data;
+  });
+  
+  curCommits++;
+  
+  fs.writeFile('./commits.txt', curCommits, (e) => console.log(curCommits));
+  
+  return curCommits;
 }
 
 const findIndex = (rows) =>
