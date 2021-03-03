@@ -11,7 +11,7 @@ function generateRickRoll() {
 }
 
 const findIndex = (rows) =>
-  rows.findIndex((r) => Boolean(r.match(/<#num_commits>/i)));
+  rows.findIndex((r) => Boolean(r.match(/<#rick_roll>/i)));
 
 const updateRickRoll = (text) =>
   fs.writeFile('./README.md', text, (e) => console.log(text));
